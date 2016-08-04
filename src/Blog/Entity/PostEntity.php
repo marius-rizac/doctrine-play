@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping\Column;
 
 /**
  * @Entity
- * @Table(indexes={@Index(name="publication_date_idx", columns="publicationDate")})
+ * @Table(name="posts", indexes={@Index(name="publication_date_idx", columns="publicationDate")})
  */
 class PostEntity
 {
