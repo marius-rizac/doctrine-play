@@ -13,12 +13,6 @@ BLACKTEXT=`tput setaf 0`
 COLOR=`tput setaf 7` # text white
 NC=`tput sgr0` # reset
 
-if [[ `echo "$@" | grep '\-\-reset'` ]] || [[ `echo "$@" | grep '\-r'` ]]; then
-    RESET=1
-else
-    RESET=0
-fi
-
 function labelText {
     echo -e "\n${BACKGROUND}${COLOR}-> ${1} ${NC}\n"
 }
