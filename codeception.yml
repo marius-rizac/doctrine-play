@@ -20,8 +20,8 @@ modules:
             password: ''
             dump: tests/_data/dump.sql
 
-#coverage:
-#    enabled: true
-#    include:
-#        - src/*
-#    exclude: ~
+coverage:
+    enabled: true
+    remote: true
+    c3_url: 'http://10.10.0.82:8000'
+    whitelist: { include: ['src/*.php'] }
