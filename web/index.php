@@ -32,7 +32,7 @@ function getForm($title = '', $body = '')
 
 if (empty($_GET['p']) || $_GET['p'] === '') {
     $posts = $entityManager
-        ->getRepository(\Blog\Entity\Post::class)
+        ->getRepository(\Blog\Entity\PostEntity::class)
         ->findAll();
 
     echo '<a href="/?p=add-post">Add post</a>';
@@ -49,7 +49,7 @@ if (empty($_GET['p']) || $_GET['p'] === '') {
     }
 } elseif ($_GET['p'] === 'add-post') {
     if (!empty($_POST['title']) && !empty($_POST['body'])) {
-        $post = new \Blog\Entity\Post();
+        $post = new \Blog\Entity\PostEntity();
         $post->setBody($_POST['body']);
         $post->setTitle($_POST['title']);
         $post->setPublicationDate(new \DateTime());
@@ -64,7 +64,7 @@ if (empty($_GET['p']) || $_GET['p'] === '') {
     echo getForm();
 } elseif ($_GET['p'] === 'edit-post') {
     $idPost = (int) $_GET['id'];
-    $post = $entityManager->getRepository(\Blog\Entity\Post::class)
+    $post = $entityManager->getRepository(\Blog\Entity\PostEntity::class)
         ->find($idPost)
     ;
     if (!empty($_POST['title']) && !empty($_POST['body'])) {
@@ -82,7 +82,7 @@ if (empty($_GET['p']) || $_GET['p'] === '') {
     echo getForm($post->getTitle(), $post->getBody());
 } elseif ($_GET['p'] === 'delete-post') {
     $idPost = (int) $_GET['id'];
-    $post = $entityManager->getRepository(\Blog\Entity\Post::class)
+    $post = $entityManager->getRepository(\Blog\Entity\PostEntity::class)
         ->find($idPost)
     ;
 

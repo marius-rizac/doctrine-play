@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping\Column;
  * @Entity
  * @Table(indexes={@Index(name="publication_date_idx", columns="publicationDate")})
  */
-class Post
+class PostEntity
 {
     /**
      * @var int
