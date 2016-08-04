@@ -1,0 +1,6 @@
+_vm/
+.idea/
+vendor/
+*.log
+files-final/
+data/*.db
