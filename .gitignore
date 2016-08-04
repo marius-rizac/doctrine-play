@@ -4,3 +4,5 @@ vendor/
 *.log
 files-final/
 data/*.db
+
+tests/_output/*
