@@ -3,7 +3,7 @@
 
 namespace Blog\DataFixtures;
 
-use Blog\Entity\Post;
+use Blog\Entity\PostEntity;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -17,15 +17,13 @@ class LoadPostData implements FixtureInterface
     public function load(ObjectManager $manager)
     {
         for ($i=1; $i<=self::NUMBER_OF_POSTS; $i++) {
-            $post = new Post();
+            $post = new PostEntity();
             $post->setTitle(sprintf('Blog post no. %d', $i));
             $post->setBody(<<<EOT
     Lorem Ipsum Dolor ----
 EOT
     );
             $post->setPublicationDate(new \DateTime(sprintf('-%d days', self::NUMBER_OF_POSTS - $i)));
-
-            echo "Fixture ${i} loaded\n";
 
             $manager->persist($post);
         }
